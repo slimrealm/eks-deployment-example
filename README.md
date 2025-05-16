@@ -23,3 +23,6 @@ The application is a basic Node.js/Express server that returns the hostname of t
   - Provisions the EKS cluster and applies the Kubernetes manifests
   - Waits for the LoadBalancer service to become available
   - Sends 20 consecutive HTTP requests to the exposed endpoint to demonstrate load balancing across the 3 pods (evidenced by different hostnames in the response)
+
+- #### IMPORTANT: EKS is not free tier in AWS, so don't forget to tear down when done
+  ```eksctl delete cluster --name basic-node-app-cluster --region <AWS_REGION>```
