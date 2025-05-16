@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-node-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: basic-node-app
+  template:
+    metadata:
+      labels:
+        app: basic-node-app
+    spec:
+      containers:
+        - name: basic-node-app
+          image: slimrealm/basic-node-app:latest
+          imagePullPolicy: Always
+          env:
+            - name: DOCKER_DEFAULT_PLATFORM
+              value: linux/amd64
+          ports:
+            - containerPort: 3000
